@@ -159,7 +159,13 @@
       <ownedRule xmi:type="uml:Constraint" xmi:id="_GFWx0ASsEe-3gKEjab9rZg" name="DateLaterThanNow" visibility="public">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_GFYnAASsEe-3gKEjab9rZg" name="constraintSpec">
           <language>OCL</language>
-          <body>self.date &lt;= Date.now()</body>
+          <body>self.Date &lt;= Date.now()</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_YF_6gASxEe-AZIq1Bca36g" name="Non_Negative_Totalprice">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_YGBIoASxEe-AZIq1Bca36g" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.Total_Price >= 0</body>
         </specification>
       </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Kcmg8APSEe-Lget4_yOhNw" name="Transaction_ID">
@@ -178,6 +184,12 @@
       <ownedOperation xmi:type="uml:Operation" xmi:id="_S0LAIAPjEe-Lget4_yOhNw" name="create_transaction"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_AMQvAAPREe-Lget4_yOhNw" name="Delicacy">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_4Z3nUAStEe-AZIq1Bca36g" name="ValidExpiryDate">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_4Z41cAStEe-AZIq1Bca36g" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.Expiry_Date > Date::now()</body>
+        </specification>
+      </ownedRule>
       <generalization xmi:type="uml:Generalization" xmi:id="_M47HgAPUEe-Lget4_yOhNw" general="_4XwQ4APQEe-Lget4_yOhNw"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_98Ql0APREe-Lget4_yOhNw" name="Expiry_Date" type="_hjrIMAPoEe-Lget4_yOhNw"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="__k5XkAPREe-Lget4_yOhNw" name="Dietary_Restrictions" type="_7CsOUAPqEe-Lget4_yOhNw"/>
