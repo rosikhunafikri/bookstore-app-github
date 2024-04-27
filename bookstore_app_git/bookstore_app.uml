@@ -64,10 +64,16 @@
           <body>true</body>
         </specification>
       </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_2LdWYASqEe-3gKEjab9rZg" name="UniqueUserId" constrainedElement="_s63E4APSEe-Lget4_yOhNw">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_2LkrIASqEe-3gKEjab9rZg" name="constraintSpec">
+          <language>OCL</language>
+          <body>User.allInstances() -> isUnique(User_ID)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_s63E4APSEe-Lget4_yOhNw" name="User_ID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_uxTpIAPSEe-Lget4_yOhNw" name="Name">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_uxTpIAPSEe-Lget4_yOhNw" name="Name" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_wzcgAAPSEe-Lget4_yOhNw" name="Role" type="_cdHTgAPnEe-Lget4_yOhNw"/>
@@ -98,6 +104,12 @@
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_carRQAPsEe-Lget4_yOhNw" name="constraintSpec">
           <language>OCL</language>
           <body>self.Price >= 0</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_6ZlHMASrEe-3gKEjab9rZg" name="Nonnegative Stock">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_6ZmVUASrEe-3gKEjab9rZg" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.Stock >=0</body>
         </specification>
       </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_aERO0APREe-Lget4_yOhNw" name="Product_ID">
@@ -144,6 +156,12 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_6cEckAPREe-Lget4_yOhNw" name="Material" type="_09ApgAPqEe-Lget4_yOhNw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_MyOJ8APREe-Lget4_yOhNw" name="Transaction">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_GFWx0ASsEe-3gKEjab9rZg" name="DateLaterThanNow" visibility="public">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_GFYnAASsEe-3gKEjab9rZg" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.date &lt;= Date.now()</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Kcmg8APSEe-Lget4_yOhNw" name="Transaction_ID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
