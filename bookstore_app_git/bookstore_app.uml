@@ -64,7 +64,7 @@
           <body>true</body>
         </specification>
       </ownedRule>
-      <ownedRule xmi:type="uml:Constraint" xmi:id="_2LdWYASqEe-3gKEjab9rZg" name="UniqueUserId" constrainedElement="_s63E4APSEe-Lget4_yOhNw">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_2LdWYASqEe-3gKEjab9rZg" name="UniqueUserId" visibility="protected" constrainedElement="_s63E4APSEe-Lget4_yOhNw">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_2LkrIASqEe-3gKEjab9rZg" name="constraintSpec">
           <language>OCL</language>
           <body>User.allInstances() -> isUnique(User_ID)</body>
@@ -106,10 +106,16 @@
           <body>self.Price >= 0</body>
         </specification>
       </ownedRule>
-      <ownedRule xmi:type="uml:Constraint" xmi:id="_6ZlHMASrEe-3gKEjab9rZg" name="Nonnegative Stock">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_6ZlHMASrEe-3gKEjab9rZg" name="Nonnegative Stock" visibility="private">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_6ZmVUASrEe-3gKEjab9rZg" name="constraintSpec">
           <language>OCL</language>
           <body>self.Stock >=0</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_tios4AVOEe-8tYgSXDXlEw" name="UniqueProductId" visibility="public">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_tipT8AVOEe-8tYgSXDXlEw" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.allInstances() -> isUnique(Product_ID)</body>
         </specification>
       </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_aERO0APREe-Lget4_yOhNw" name="Product_ID">
@@ -166,6 +172,12 @@
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_YGBIoASxEe-AZIq1Bca36g" name="constraintSpec">
           <language>OCL</language>
           <body>self.Total_Price >= 0</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_ojO_MAVEEe-8tYgSXDXlEw" name="ProductsInTransaction">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_ojXiEAVEEe-8tYgSXDXlEw" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.product->notEmpty()</body>
         </specification>
       </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Kcmg8APSEe-Lget4_yOhNw" name="Transaction_ID">
@@ -456,6 +468,12 @@ This framework provides a solid foundation for developing your bookshop applicat
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_-5XhgASFEe-AZIq1Bca36g" name="Online Shop">
     <packagedElement xmi:type="uml:Class" xmi:id="_eXZkwAR9Ee-AZIq1Bca36g" name="User">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_GvJgAAVMEe-8tYgSXDXlEw" name="UniqueUserID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_GvKuIAVMEe-8tYgSXDXlEw" name="constraintSpec">
+          <language>OCL</language>
+          <body>User.allInstances() -> isUnique(UserID)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_QlBkkAR-Ee-AZIq1Bca36g" name="userID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -475,6 +493,18 @@ This framework provides a solid foundation for developing your bookshop applicat
       <ownedOperation xmi:type="uml:Operation" xmi:id="_fSxHMQSFEe-AZIq1Bca36g" name="login"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_fIXHoAR9Ee-AZIq1Bca36g" name="Order">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_PqTnsAVNEe-8tYgSXDXlEw" name="UniqueOrderId" visibility="package">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_PqU10AVNEe-8tYgSXDXlEw" name="constraintSpec">
+          <language>OCL</language>
+          <body>Order.allInstances().isUnique(OrderID)</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_V_SMwAVNEe-8tYgSXDXlEw" name="NonNegativeTotalAmount" visibility="private">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_V_Sz0AVNEe-8tYgSXDXlEw" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.totalAmount >= 0</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_FT6nQAR_Ee-AZIq1Bca36g" name="orderID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -491,6 +521,12 @@ This framework provides a solid foundation for developing your bookshop applicat
       <ownedOperation xmi:type="uml:Operation" xmi:id="_Sk0ZoASgEe-o1Lh1wHD7Kw" name="pay"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_ew-iYAR9Ee-AZIq1Bca36g" name="Shopping_Cart">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_fAwNQAVNEe-8tYgSXDXlEw" name="UniqueCartId">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_fAw0UAVNEe-8tYgSXDXlEw" name="constraintSpec">
+          <language>OCL</language>
+          <body>Shopping_Cart.allInstances().isUnique(CartID)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_3AWbAAR-Ee-AZIq1Bca36g" name="cartID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -509,6 +545,18 @@ This framework provides a solid foundation for developing your bookshop applicat
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_JF-goASgEe-o1Lh1wHD7Kw" name="pending"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_e6viYAR9Ee-AZIq1Bca36g" name="Cart_Item">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="__a3koAVMEe-8tYgSXDXlEw" name="QuantityLessThanStock">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="__a4ywAVMEe-8tYgSXDXlEw" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.quantity &lt;= self.product.stock</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_sm6g8AVNEe-8tYgSXDXlEw" name="PositiveQuantity" visibility="private">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_sm7IAAVNEe-8tYgSXDXlEw" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.quantity > 0</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_7O10sAR-Ee-AZIq1Bca36g" name="cartID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -520,6 +568,24 @@ This framework provides a solid foundation for developing your bookshop applicat
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_ekry0AR9Ee-AZIq1Bca36g" name="Product" visibility="package">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_6QbDkAVNEe-8tYgSXDXlEw" name="NonNegativeStock" visibility="package">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_6QcRsAVNEe-8tYgSXDXlEw" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.Stock >= 0</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_OvlPYAVOEe-8tYgSXDXlEw" name="ValidPrice">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_OvmdgAVOEe-8tYgSXDXlEw" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.Price > 0</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_XoVYwAVOEe-8tYgSXDXlEw" name="UniqueProductId" visibility="private">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_XoV_0AVOEe-8tYgSXDXlEw" name="constraintSpec">
+          <language>OCL</language>
+          <body>Product.allInstances() -> isUnique(Product_ID)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_oXLyMAR-Ee-AZIq1Bca36g" name="Price">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
       </ownedAttribute>
