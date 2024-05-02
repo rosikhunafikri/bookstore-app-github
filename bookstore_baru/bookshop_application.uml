@@ -5,6 +5,12 @@
   </packageImport>
   <packagedElement xmi:type="uml:Package" xmi:id="_LJJrcAiUEe-lZJuob0VUtA" name="Online Shop">
     <packagedElement xmi:type="uml:Class" xmi:id="_LNobcAiXEe-lZJuob0VUtA" name="Customer">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_8zmyIAinEe-5l8IzV_YHHQ" name="UniqueCustomerID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_8zoAQAinEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>Customer.allInstances().isUnique(customerID)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_uh8WQAiaEe-lZJuob0VUtA" name="customerID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -16,12 +22,36 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_MPh9UAiXEe-lZJuob0VUtA" name="Cart">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_E515cAioEe-5l8IzV_YHHQ" name="UniqueCardID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_E52ggAioEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>Cart.allInstances().isUnique(cartID)</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_MAFjYAioEe-5l8IzV_YHHQ" name="NonZeroItemOnCart" visibility="protected">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_MAGKcAioEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.item->size() > 0</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_4yYEQAiaEe-lZJuob0VUtA" name="cartID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_6fE2oAiaEe-lZJuob0VUtA" name="items" type="_h83eYAiVEe-lZJuob0VUtA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_OY4PcAiXEe-lZJuob0VUtA" name="PurchaseOrder">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_hfJtAAioEe-5l8IzV_YHHQ" name="UniqueOrderID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_hfK7IAioEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>PurchaseOrder.allInstances().isUnique(orderID)</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_y_L1QAioEe-5l8IzV_YHHQ" name="NonZeroTotalAmount">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_y_McUAioEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.totalAmount > 0</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_YT5KQAibEe-lZJuob0VUtA" name="orderID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -46,6 +76,24 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_TNfN8AiXEe-lZJuob0VUtA" name="Payment">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_9ZFoUAioEe-5l8IzV_YHHQ" name="UniquePaymentID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_9ZGPYAioEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>Payment.allInstances().isUnique(paymentID)</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_H2XfgAipEe-5l8IzV_YHHQ" name="NonZeroPaymentAmount">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_H2YGkAipEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.paymentAmount > 0</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_P0elkAipEe-5l8IzV_YHHQ" name="EqualPayment">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_P0fMoAipEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.paymentAmount = self.purchaseOrder.totalAmount</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_w480cAibEe-lZJuob0VUtA" name="paymentID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -60,6 +108,12 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_OgzjwAiUEe-lZJuob0VUtA" name="MMS">
     <packagedElement xmi:type="uml:Class" xmi:id="_h83eYAiVEe-lZJuob0VUtA" name="Book">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_tESg8AikEe-5l8IzV_YHHQ" name="NonZeroPage">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_tETIAAikEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.pageCount > 0</body>
+        </specification>
+      </ownedRule>
       <generalization xmi:type="uml:Generalization" xmi:id="_N4WjAAicEe-lZJuob0VUtA" general="_tpMioAiVEe-lZJuob0VUtA"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_oq5xwAiXEe-lZJuob0VUtA" name="title">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -90,6 +144,18 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_iYGo4AiVEe-lZJuob0VUtA" name="Delicacy">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_Q8QfQAikEe-5l8IzV_YHHQ" name="NonNegativeWeight">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_Q8S7gAikEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.weight >= 0</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_dJHO8AiqEe-5l8IzV_YHHQ" name="ValidExpirationDate">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_dJH2AAiqEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.expirationDate > Date::now()</body>
+        </specification>
+      </ownedRule>
       <generalization xmi:type="uml:Generalization" xmi:id="_QCOZkAicEe-lZJuob0VUtA" general="_tpMioAiVEe-lZJuob0VUtA"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_BjQLYAiYEe-lZJuob0VUtA" name="expirationDate" type="_LKvNkAiZEe-lZJuob0VUtA"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_N_BvkAiYEe-lZJuob0VUtA" name="ingredients">
@@ -116,6 +182,12 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_cJ6g8AiYEe-lZJuob0VUtA" name="Property4"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_sCwJQAiVEe-lZJuob0VUtA" name="Bookstore_Manager">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_7otzsAikEe-5l8IzV_YHHQ" name="UniqueUserID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_7ouawAikEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>Bookstore_Manager.allInstances().isUnique(userID)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_unP-8AiYEe-lZJuob0VUtA" name="userID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -127,6 +199,18 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_swDUIAiVEe-lZJuob0VUtA" name="Order">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_dYUh4AilEe-5l8IzV_YHHQ" name="UniqueOrderID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_dYVI8AilEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>Order.allInstances().isUnique(orderID)</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_uDHrQAilEe-5l8IzV_YHHQ" name="NonNegativeTotalAmount">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_uDI5YAilEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.totalAmount >= 0</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_2FpDIAiYEe-lZJuob0VUtA" name="orderID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -142,6 +226,24 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_tpMioAiVEe-lZJuob0VUtA" name="Merchandise" visibility="public">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_q6Ch0AiiEe-5l8IzV_YHHQ" name="UniqueProductID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_q6PWIAiiEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>Product.allInstances() -> isUnique(Product_ID)</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_T2FokAijEe-5l8IzV_YHHQ" name="NonNegativePrice">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_T2G2sAijEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.price >= 0</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_cMAKoAijEe-5l8IzV_YHHQ" name="NonNegativeStock">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_cMAxsAijEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.stock >= 0</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_XNwTgAiZEe-lZJuob0VUtA" name="productID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -158,7 +260,19 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_k_Em8AicEe-lZJuob0VUtA" name="scan" concurrency="guarded"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_SdqEwAidEe-lZJuob0VUtA" name="addMerchandise">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_SdqEwAidEe-lZJuob0VUtA" name="addMerchandise" postcondition="_4J-iUAisEe-5l8IzV_YHHQ" precondition="_GahsQAisEe-5l8IzV_YHHQ">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_GahsQAisEe-5l8IzV_YHHQ" name="MerchandiseNotExist">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_Gai6YAisEe-5l8IzV_YHHQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>	not Merchandise.allInstances().exist(productID = item.productID)</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_4J-iUAisEe-5l8IzV_YHHQ" name="MerchandiseExist">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_4J_JYAisEe-5l8IzV_YHHQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>Merchandise.allInstances().exist(productID = item.productID)</body>
+          </specification>
+        </ownedRule>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_a9ibIAidEe-lZJuob0VUtA" name="item" type="_tpMioAiVEe-lZJuob0VUtA" isUnique="false" effect="update"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_pxglwAidEe-lZJuob0VUtA" name="removeMerchandise" visibility="public">
@@ -184,6 +298,12 @@
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_AtWJAAiWEe-lZJuob0VUtA" name="Review">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_5eQR0AilEe-5l8IzV_YHHQ" name="Rating0To10">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_5eRf8AilEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.rating >= 0 and self.rating &lt;= 10</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_j7wQIAiZEe-lZJuob0VUtA" name="content">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
@@ -194,6 +314,12 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_aVboYAiUEe-lZJuob0VUtA" name="User Management">
     <packagedElement xmi:type="uml:Class" xmi:id="_FimyUAiXEe-lZJuob0VUtA" name="Administrator">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_dStMoAimEe-5l8IzV_YHHQ" name="UniqueAdminID" visibility="package">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_dStzsAimEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>Administrator.allInstances().isUnique(adminID)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_CJRXoAiaEe-lZJuob0VUtA" name="adminID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -205,6 +331,12 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_IazugAiXEe-lZJuob0VUtA" name="Account">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_oi4gYAimEe-5l8IzV_YHHQ" name="UniqueAccountID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_oi5HcAimEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>Account.allInstances().isUnique(accountID)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_HXa3gAiaEe-lZJuob0VUtA" name="accountID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -218,6 +350,18 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_fJfNQAiUEe-lZJuob0VUtA" name="Event Planning">
     <packagedElement xmi:type="uml:Class" xmi:id="_AV6rAAiXEe-lZJuob0VUtA" name="Event">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_Imn_IAimEe-5l8IzV_YHHQ" name="UniqueEventID" visibility="package">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_ImomMAimEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>Event.allInstances().isUnique(eventID)</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_pi2y0AiqEe-5l8IzV_YHHQ" name="NoPastEvent">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_pi3Z4AiqEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>self.eventDate >= Date::now()</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_rZ4OkAiZEe-lZJuob0VUtA" name="eventID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -230,6 +374,12 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_x3mf8AiZEe-lZJuob0VUtA" name="eventDate" type="_LKvNkAiZEe-lZJuob0VUtA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_CG0n8AiXEe-lZJuob0VUtA" name="Booking">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_UGvMUAimEe-5l8IzV_YHHQ" name="UniqueBookingID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_UGvzYAimEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>Booking.allInstances().isUnique(bookingID)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_zd3TIAiZEe-lZJuob0VUtA" name="bookingID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -240,7 +390,13 @@
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_jZ9j8AiUEe-lZJuob0VUtA" name="Sales and Reporting">
-    <packagedElement xmi:type="uml:Class" xmi:id="_XjvcgAiXEe-lZJuob0VUtA" name="Sales Trend">
+    <packagedElement xmi:type="uml:Class" xmi:id="_XjvcgAiXEe-lZJuob0VUtA" name="SalesTrend">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_viwVMAipEe-5l8IzV_YHHQ" name="UniqueTrendID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_viw8QAipEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>SalesTrend.allInstances().isUnique(trendID)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_5EddUAibEe-lZJuob0VUtA" name="trendID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -249,7 +405,13 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Y7Eb0AiXEe-lZJuob0VUtA" name="Sales Report">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Y7Eb0AiXEe-lZJuob0VUtA" name="SalesReport">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_-AJL0AipEe-5l8IzV_YHHQ" name="UniqueReportID">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_-AJy4AipEe-5l8IzV_YHHQ" name="constraintSpec">
+          <language>OCL</language>
+          <body>SalesReport.allInstances().isUnique(reportID)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_5XjYcAibEe-lZJuob0VUtA" name="reportID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -260,6 +422,18 @@
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_lg1pgAiXEe-lZJuob0VUtA" name="Shipping">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_0IDzwAimEe-5l8IzV_YHHQ" name="UniqueShippingID">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_0IFB4AimEe-5l8IzV_YHHQ" name="constraintSpec">
+        <language>OCL</language>
+        <body>Shipping.allInstances().isUnique(shippingID)</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_8cUI8AimEe-5l8IzV_YHHQ" name="ShippingDateEarlierThanDelivery">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_8cUwAAimEe-5l8IzV_YHHQ" name="constraintSpec">
+        <language>OCL</language>
+        <body>self.shippingDate &lt; self.deliveryDate</body>
+      </specification>
+    </ownedRule>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_W4AQgAiaEe-lZJuob0VUtA" name="shippingID">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
