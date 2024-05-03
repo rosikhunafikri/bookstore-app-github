@@ -35,6 +35,7 @@
           <body>Customer.allInstances().isUnique(customerID)</body>
         </specification>
       </ownedRule>
+      <generalization xmi:type="uml:Generalization" xmi:id="_iHEw8AleEe-PVIzPIWzU8Q" general="_IazugAiXEe-lZJuob0VUtA"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_uh8WQAiaEe-lZJuob0VUtA" name="customerID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -854,7 +855,7 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CdiUMAlaEe-PVIzPIWzU8Q" value="*"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_LdGQMAlaEe-PVIzPIWzU8Q" name="makes" memberEnd="_LdHeUAlaEe-PVIzPIWzU8Q _LdHeUQlaEe-PVIzPIWzU8Q">
+  <packagedElement xmi:type="uml:Association" xmi:id="_LdGQMAlaEe-PVIzPIWzU8Q" name="makesReview" memberEnd="_LdHeUAlaEe-PVIzPIWzU8Q _LdHeUQlaEe-PVIzPIWzU8Q">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LdG3QAlaEe-PVIzPIWzU8Q" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LdG3QQlaEe-PVIzPIWzU8Q" key="nature" value="UML_Nature"/>
     </eAnnotations>
@@ -872,6 +873,40 @@
     <ownedEnd xmi:type="uml:Property" xmi:id="_gj5DwAlaEe-PVIzPIWzU8Q" name="cart" type="_MPh9UAiXEe-lZJuob0VUtA" association="_gj3OkAlaEe-PVIzPIWzU8Q">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m5X_IAlaEe-PVIzPIWzU8Q"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m5jlUAlaEe-PVIzPIWzU8Q" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_z3VREAlfEe-PVIzPIWzU8Q" name="makesBooking" memberEnd="_z3V4IglfEe-PVIzPIWzU8Q _z3V4JQlfEe-PVIzPIWzU8Q">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z3V4IAlfEe-PVIzPIWzU8Q" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_z3V4IQlfEe-PVIzPIWzU8Q" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_z3V4JQlfEe-PVIzPIWzU8Q" name="customer" type="_LNobcAiXEe-lZJuob0VUtA" association="_z3VREAlfEe-PVIzPIWzU8Q"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_z3V4IglfEe-PVIzPIWzU8Q" name="booking" type="_CG0n8AiXEe-lZJuob0VUtA" aggregation="composite" association="_z3VREAlfEe-PVIzPIWzU8Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z3V4IwlfEe-PVIzPIWzU8Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z3V4JAlfEe-PVIzPIWzU8Q" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_NbZhMAlgEe-PVIzPIWzU8Q" name="uses" memberEnd="_NbaIQglgEe-PVIzPIWzU8Q _NbaIQwlgEe-PVIzPIWzU8Q">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NbaIQAlgEe-PVIzPIWzU8Q" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NbaIQQlgEe-PVIzPIWzU8Q" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_NbaIQglgEe-PVIzPIWzU8Q" name="orderhistory" type="_RvtoYAiXEe-lZJuob0VUtA" association="_NbZhMAlgEe-PVIzPIWzU8Q">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UJGIQAlgEe-PVIzPIWzU8Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_NbaIQwlgEe-PVIzPIWzU8Q" name="salestrend" type="_XjvcgAiXEe-lZJuob0VUtA" aggregation="composite" association="_NbZhMAlgEe-PVIzPIWzU8Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TyGkkAlgEe-PVIzPIWzU8Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TyJn4AlgEe-PVIzPIWzU8Q" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_dL-eAAlgEe-PVIzPIWzU8Q" name="uses" memberEnd="_dL_FEglgEe-PVIzPIWzU8Q _dL_FEwlgEe-PVIzPIWzU8Q">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dL_FEAlgEe-PVIzPIWzU8Q" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dL_FEQlgEe-PVIzPIWzU8Q" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dL_FEglgEe-PVIzPIWzU8Q" name="orderhistory" type="_RvtoYAiXEe-lZJuob0VUtA" association="_dL-eAAlgEe-PVIzPIWzU8Q">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iiWs0AlgEe-PVIzPIWzU8Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dL_FEwlgEe-PVIzPIWzU8Q" name="salesreport" type="_Y7Eb0AiXEe-lZJuob0VUtA" aggregation="composite" association="_dL-eAAlgEe-PVIzPIWzU8Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iNSbwAlgEe-PVIzPIWzU8Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g2Y6QAlgEe-PVIzPIWzU8Q" value="*"/>
     </ownedEnd>
   </packagedElement>
 </uml:Model>
