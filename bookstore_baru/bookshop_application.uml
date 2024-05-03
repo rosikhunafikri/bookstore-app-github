@@ -255,6 +255,9 @@
       <ownedOperation xmi:type="uml:Operation" xmi:id="_tP2MwAjQEe-G593Jk-IbFQ" name="confirmOrder"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_tP2MwQjQEe-G593Jk-IbFQ" name="cancelOrder"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_fkdtcAliEe-ifZ-Pr_SfhA" client="_TNfN8AiXEe-lZJuob0VUtA" supplier="_LKvNkAiZEe-lZJuob0VUtA"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_AHALkAljEe-ifZ-Pr_SfhA" client="_OY4PcAiXEe-lZJuob0VUtA" supplier="_LKvNkAiZEe-lZJuob0VUtA"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_IBgkAAljEe-ifZ-Pr_SfhA" client="_RvtoYAiXEe-lZJuob0VUtA" supplier="_LKvNkAiZEe-lZJuob0VUtA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_OgzjwAiUEe-lZJuob0VUtA" name="MMS">
     <ownedRule xmi:type="uml:Constraint" xmi:id="_Q8QfQAikEe-5l8IzV_YHHQ" name="NonNegativeWeight_" constrainedElement="_iYGo4AiVEe-lZJuob0VUtA">
@@ -511,6 +514,8 @@
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_Fe9_8AjNEe-G593Jk-IbFQ" name="makeReview"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_T8Jb8AlhEe-ifZ-Pr_SfhA" client="_iYGo4AiVEe-lZJuob0VUtA" supplier="_LKvNkAiZEe-lZJuob0VUtA"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_5p2-cAlhEe-ifZ-Pr_SfhA" client="_swDUIAiVEe-lZJuob0VUtA" supplier="_LKvNkAiZEe-lZJuob0VUtA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_aVboYAiUEe-lZJuob0VUtA" name="User Management">
     <ownedRule xmi:type="uml:Constraint" xmi:id="_oi4gYAimEe-5l8IzV_YHHQ" name="UniqueAccountID_" constrainedElement="_IazugAiXEe-lZJuob0VUtA">
@@ -656,6 +661,8 @@
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_BeIyUAjOEe-G593Jk-IbFQ" name="sendConfirmationEmail"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_Bo2OQAliEe-ifZ-Pr_SfhA" client="_AV6rAAiXEe-lZJuob0VUtA" supplier="_LKvNkAiZEe-lZJuob0VUtA"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_L3yugAliEe-ifZ-Pr_SfhA" client="_CG0n8AiXEe-lZJuob0VUtA" supplier="_LKvNkAiZEe-lZJuob0VUtA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_jZ9j8AiUEe-lZJuob0VUtA" name="Sales and Reporting">
     <ownedRule xmi:type="uml:Constraint" xmi:id="_viwVMAipEe-5l8IzV_YHHQ" name="UniqueTrendID_" constrainedElement="_XjvcgAiXEe-lZJuob0VUtA">
@@ -696,6 +703,8 @@
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_DZ7pQAjREe-G593Jk-IbFQ" name="generateReport"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_UDFfgAljEe-ifZ-Pr_SfhA" client="_Y7Eb0AiXEe-lZJuob0VUtA" supplier="_LKvNkAiZEe-lZJuob0VUtA"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_kXPqgAljEe-ifZ-Pr_SfhA" client="_XjvcgAiXEe-lZJuob0VUtA" supplier="_LKvNkAiZEe-lZJuob0VUtA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_lg1pgAiXEe-lZJuob0VUtA" name="Shipping">
     <ownedRule xmi:type="uml:Constraint" xmi:id="_0IDzwAimEe-5l8IzV_YHHQ" name="UniqueShippingID">
@@ -909,4 +918,5 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g2Y6QAlgEe-PVIzPIWzU8Q" value="*"/>
     </ownedEnd>
   </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_SRBhcAliEe-ifZ-Pr_SfhA" client="_lg1pgAiXEe-lZJuob0VUtA" supplier="_LKvNkAiZEe-lZJuob0VUtA"/>
 </uml:Model>
